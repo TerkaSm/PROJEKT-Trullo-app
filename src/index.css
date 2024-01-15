@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  }
+}
+
+@layer components {
+  .list {
+    @apply flex-shrink-0 w-full mb-10 mx-4 p-3 bg-gray-600 rounded-lg shadow-xl text-gray-500;
+  }
+
+  @screen sm {
+    .list {
+      @apply w-80 mx-4 mb-0;
+    }
+  }
+  
+  .card {
+    @apply my-2 bg-gray-200 cursor-pointer border-b border-gray-900 rounded;
+  }
+  
+  .card:hover {
+    @apply bg-gray-100;
+  }
+
+  .btn {
+    @apply font-semibold text-white border-b border-gray-600 py-1 px-3 rounded;
+  }
+
+  .btn-primary {
+    @apply bg-red-700;
+  }
+
+  .btn-primary:hover, 
+  .btn-primary:active, 
+  .btn-primary:focus {
+    @apply bg-red-600;
+  }
+ }
