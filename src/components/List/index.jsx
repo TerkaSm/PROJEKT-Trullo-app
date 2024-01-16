@@ -4,15 +4,14 @@ import { data } from "../../../data"
 
 export const List = ({title, id, cards}) => {
   return (
-    <section className="list">
+    <section key={id} className="list">
       <header>
         <h3 className="font-bold p-1 leading-none text-gray-100 uppercase">{title}</h3>
       </header>
 
       <ul>
       {cards.map((card, text, id) => {
-        console.log(cards);
-        <Card text={card.text} key={card.id}/>
+        return <Card text={card.text} key={card.id}/>
       })}
       </ul>
 
