@@ -1,5 +1,5 @@
 import { List } from "../../components/List";
-import { AddForm } from "../../components/AddForm";
+import { AddListForm } from "../../components/AddListForm";
 import { data } from "../../../data";
 
 export const HomePage = () => {
@@ -10,7 +10,7 @@ export const HomePage = () => {
           {data.map(list => {
             return <List title={list.title} key={list.id}  cards={list.cards} />
           })}
-          <AddForm />
+          <AddListForm />
         </div>
       </main>
     </div>
