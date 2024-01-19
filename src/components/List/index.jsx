@@ -9,9 +9,9 @@ export const List = ({title, id, cards}) => {
       </header>
 
       <ul>
-      {cards.map((card, text, id) => {
-        return <Card text={card.text} key={card.id}/>
-      })}
+      {cards.map((card, text, id) => (
+        <Card text={card.text} key={card.id} />
+      ))}
       </ul>
       <AddCardform />
     </section>
