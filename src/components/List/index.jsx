@@ -1,7 +1,20 @@
 import { Card } from "../Card"
 import { AddCardform } from "../AddCardForm"
+import { useState } from "react"
 
-export const List = ({title, id, cards}) => {
+export const List = ({id, title}) => {
+  const [cards, setCards] = useState([])
+
+  const handleAddItem = (item) => {
+    const newCard = {
+      item, 
+      id: Math.random()
+    }
+
+    const nextCards = [...cards, newCard]
+    setCards(nextCards)
+  }
+
   return (
     <section key={id} className="list">
       <header>
@@ -9,11 +22,11 @@ export const List = ({title, id, cards}) => {
       </header>
 
       <ul>
-      {cards.map((card, text, id) => (
-        <Card text={card.text} key={card.id} />
+      {cards.map(({item, id}) => (
+        <Card item={item} key={id} />
       ))}
       </ul>
-      <AddCardform />
+      <AddCardform handleAddItem={handleAddItem} />
     </section>
   
   )

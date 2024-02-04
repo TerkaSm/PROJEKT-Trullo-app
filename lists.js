@@ -1,4 +1,4 @@
-export const data = [
+export const lists = [
   {
     id: 1,
     title: 'Dnešní plán',

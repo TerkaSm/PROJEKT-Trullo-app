@@ -1,9 +1,9 @@
-export const Card = ({card, text, id}) => {
+export const Card = ({item, id}) => {
   return (
-    <li className="card">
+    <li key={id} className="card">
       <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t"><img src="./img/godzilla.jpg" alt="" /></figure>
       <div className="p-3">
-        <p contentEditable>{text}</p>
+        <p contentEditable>{item}</p>
       </div>
     </li>
   )
