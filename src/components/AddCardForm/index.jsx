@@ -19,10 +19,10 @@ export const AddCardform = ({handleAddItem}) => {
 
     return (
       <footer>
-        {!addBtnVisible ? (
+        {!addBtnVisible ? null : (
           <a onClick={handleClick} className="p-1 pb-2.5 text-gray-200 hover:text-gray-50" href="#">
           <span className="pl-1">+ Přidat úkol</span>
-        </a>) : null
+        </a>)
         }
         {!formVisible ? null : ( 
           <form onSubmit={handleSubmit} >
