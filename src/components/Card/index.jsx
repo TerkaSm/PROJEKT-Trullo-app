@@ -1,10 +1,22 @@
+import { CardImage } from "../CardImage"
+import { Label } from "../Label"
+import { Tag } from "../Tag"
+
 export const Card = ({item, id}) => {
   return (
     <li key={id} className="card">
-      <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t"><img src="./img/godzilla.jpg" alt="" /></figure>
+      <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t">
+        <CardImage />
+      </figure>
       <div className="p-3">
+        <aside className="flex mb-1.5">
+          <Label />
+        </aside>
         <p contentEditable>{item}</p>
       </div>
+      <footer className="flex m-2 text-white">
+        <Tag>tag</Tag>
+      </footer>
     </li>
   )
 }

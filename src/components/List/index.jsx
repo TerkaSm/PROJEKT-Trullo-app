@@ -2,8 +2,10 @@ import { Card } from "../Card"
 import { AddCardform } from "../AddCardForm"
 import { useState } from "react"
 
-export const List = ({id, title}) => {
-  const [cards, setCards] = useState([])
+export const List = ({id, title, cards}) => {
+  const [addCards, setAddCards] = useState(cards)
+
+  console.log(cards)
 
   const handleAddItem = (item) => {
     const newCard = {
@@ -11,8 +13,8 @@ export const List = ({id, title}) => {
       id: Math.random()
     }
 
-    const nextCards = [...cards, newCard]
-    setCards(nextCards)
+    const nextCards = [...addCards, newCard]
+    setAddCards(nextCards)
   }
 
   return (
@@ -22,7 +24,7 @@ export const List = ({id, title}) => {
       </header>
 
       <ul>
-      {cards.map(({item, id}) => (
+      {addCards.map(({item, id}) => (
         <Card item={item} key={id} />
       ))}
       </ul>

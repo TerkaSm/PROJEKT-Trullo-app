@@ -1,10 +1,10 @@
 import { List } from "../../components/List";
 import { AddListForm } from "../../components/AddListForm";
-//import { lists } from "../../../lists";
+import { data } from "../../../data";
 import { useState } from "react";
 
 export const HomePage = () => {
-  const [lists, setLists] = useState([])
+  const [lists, setLists] = useState(data)
 
   const handleAddList = (title, cards) => {
     const newList = {
@@ -22,7 +22,7 @@ export const HomePage = () => {
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
           {lists.map(({title, cards, id}) => {
-            return <List key={id} title={title} cards={cards} />
+            return <List key={id} title={title} cards={cards}/>
           })}
           <AddListForm handleAddList={handleAddList}/>
         </div>
