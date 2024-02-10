@@ -13,9 +13,10 @@ export const Card = ({item, id, labels, editCard, handleClick}) => {
       </figure>
       <div className="p-3">
         <aside className="flex mb-1.5">
-          {labels.map((className, index) => (
+          {/* {labels.map((className, index) => (
             <Label key={index} className={className} />
-          ))}
+          ))} */}
+          <Label className={className} />
         </aside>
         <p>{item}</p>
       </div>
