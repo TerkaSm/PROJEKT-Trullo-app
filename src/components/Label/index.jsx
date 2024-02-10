@@ -1,6 +1,8 @@
-export const Label = () => {
+
+
+export const Label = ({className}) => {
   return (
-    <span className="w-8 h-2 mr-2 rounded bg-orange-600"></span>
+    <span className={className}></span>
   )
 }
 

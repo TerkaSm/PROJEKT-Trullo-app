@@ -6,6 +6,17 @@ export const data = [
       {
         id: 1,
         text: 'ukol 1',
+        labels: [
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-fuchsia-700',
+          },
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+          },
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-blue-700'
+          }
+        ]
       },
       {
         id: 2,
@@ -24,6 +35,17 @@ export const data = [
       {
         id: 1,
         item: 'ukol 4',
+        labels: [
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-yellow-600',
+          },
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+          },
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-orange-600'
+          }
+        ]
       },
       {
         id: 2,

@@ -3,7 +3,7 @@ import { AddCardform } from "../AddCardForm"
 import { useState } from "react"
 import { Overlay } from "../Overlay"
 
-export const List = ({id, title, cards, editcard, setEditcard}) => {
+export const List = ({id, title, cards}) => {
   const [addCards, setAddCards] = useState(cards)
   const [editCard, setEditCard] = useState(false)
   const [overlayVisible, setOverlayVisible] = useState(false)
@@ -21,8 +21,9 @@ export const List = ({id, title, cards, editcard, setEditcard}) => {
   }
 
   const handleClick = () => {
-    setEditCard(!editCard)
+    console.log('kliknuto')
     setOverlayVisible(!overlayVisible)
+    setEditCard(!editCard)
   }
 
   return (
@@ -30,10 +31,10 @@ export const List = ({id, title, cards, editcard, setEditcard}) => {
       <header>
         <h3 className="font-bold p-1 leading-none text-gray-100 uppercase">{title}</h3>
       </header>
-      {!overlayVisible ? null : <Overlay />}
+      {overlayVisible && <Overlay />}
       <ul>
-      {addCards.map(({item, id}) => (
-        <Card onClick={handleClick} item={item} key={id} editCard={editCard}/>
+      {addCards.map(({item, id, labels}) => (
+        <Card handleClick={handleClick} item={item} key={id} labels={labels} editCard={editCard}/>
       ))}
       </ul>
       <AddCardform handleAddItem={handleAddItem} />
