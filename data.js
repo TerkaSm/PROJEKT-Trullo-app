@@ -20,8 +20,11 @@ export const data = [
         ],
         tags: [
           {
-            text: '',
-          }
+            text: 'tag 1',
+          },
+          {
+            text: 'tag 2'
+          },
         ]
       },
       {
@@ -31,6 +34,14 @@ export const data = [
       {
         id: 3,
         text: 'ukol 3',
+        tags: [
+          {
+            text: 'tag 1',
+          },
+          {
+            text: 'tag 2'
+          },
+        ]
       },
     ],
   },
@@ -56,6 +67,14 @@ export const data = [
       {
         id: 2,
         item: 'ukol 5',
+        labels: [
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+          },
+          {
+            className: 'w-8 h-2 mr-2 rounded bg-blue-700'
+          },
+        ],
       }
     ],
   },
