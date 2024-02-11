@@ -5,10 +5,8 @@ import { useState } from "react";
 //import { supabase } from "../../../supabaseClient";
 
 export const HomePage = () => {
-  const [lists, setLists] = useState(data); // []
-console.log(lists)
+  const [lists, setLists] = useState(data);
 
-  // přidání z lokálních dat
   const handleAddList = (title, cards) => {
     const newList = {
       id: Math.random(),
@@ -18,7 +16,6 @@ console.log(lists)
 
     const nextLists = [...lists, newList]
     setLists(nextLists)
-    console.log(nextLists)
   }
 
   return (

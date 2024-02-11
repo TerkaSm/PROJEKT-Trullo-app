@@ -5,7 +5,7 @@ export const data = [
     cards: [
       {
         id: 1,
-        text: 'ukol 1',
+        item: 'ukol 1',
         image: false,
         labels: [
           {
@@ -29,11 +29,11 @@ export const data = [
       },
       {
         id: 2,
-        text: 'ukol 2',
+        item: 'ukol 2',
       },
       {
         id: 3,
-        text: 'ukol 3',
+        item: 'ukol 3',
         tags: [
           {
             text: 'tag 1',
