@@ -63,7 +63,7 @@ export const HomePage = () => {
           {lists.map(({id, title, cards}) => {
             return <List key={id} title={title} cards={cards} />
           })}
-          <AddListForm handleAddList={createList}/>
+          <AddListForm handleClick={createList}/>
         </div>
       </main>
     </div>
