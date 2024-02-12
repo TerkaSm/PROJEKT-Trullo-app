@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Overlay } from "../Overlay/Overlay"
 
 export const List = ({id, title, cards}) => {
-  const [addCards, setAddCards] = useState(cards)
+  const [addCards, setAddCards] = useState(cards || [])
   
   const [overlayVisible, setOverlayVisible] = useState(false)
 
