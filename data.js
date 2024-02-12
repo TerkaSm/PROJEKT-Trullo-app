@@ -6,7 +6,7 @@ export const data = [
       {
         id: 1,
         item: 'ukol 1',
-        image: false,
+        image: '',
         labels: [
           {
             className: 'w-8 h-2 mr-2 rounded bg-fuchsia-700',

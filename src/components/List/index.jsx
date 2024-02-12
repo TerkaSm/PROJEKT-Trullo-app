@@ -33,9 +33,14 @@ export const List = ({id, title, cards}) => {
       </header>
       {overlayVisible && <Overlay />}
       <ul>
-      {addCards.map(({item, id, labels}) => (
-        <Card handleClick={handleClick} item={item} key={id} labels={labels} editCard={editCard}/>
-      ))}
+      {!addCards ? null : (
+        (addCards.map(({item, id, labels, tags}) => (
+          <Card handleClick={handleClick} item={item} key={id} labels={labels} tags={tags} editCard={editCard}/>
+        )))
+      )}
+      {/* {addCards.map(({item, id, labels}) => (
+        <Card handleClick={handleClick} item={item} key={id} labels={labels} tags={tags} editCard={editCard}/>
+      ))} */}
       </ul>
       <AddCardform handleAddItem={handleAddItem} />
     </section>

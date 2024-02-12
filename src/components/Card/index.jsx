@@ -3,9 +3,10 @@ import { EditationCard } from "../EditationCard"
 import { Label } from "../Label"
 import { Tag } from "../Tag"
 
-export const Card = ({item, id, labels, editCard, handleClick}) => {
+export const Card = ({item, id, labels, tags, editCard, handleClick}) => {
   const className = !editCard ? 'card' : 'card relative z-20';
   console.log(labels)
+  console.log(tags)
   return (
     <li onClick={handleClick} key={id} className={className}>
       <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t">
@@ -13,10 +14,20 @@ export const Card = ({item, id, labels, editCard, handleClick}) => {
       </figure>
       <div className="p-3">
         <aside className="flex mb-1.5">
+        {labels && (
+            labels.map((className, index) => (
+              <Label key={index} className={className} />
+            ))
+          )}
+          {/* {!labels ? null : (
+            labels.map((className, index) => (
+              <Label key={index} className={className} />
+            ))
+          )} */}
           {/* {labels.map((className, index) => (
             <Label key={index} className={className} />
           ))} */}
-          <Label className={className} />
+          {/* <Label className="w-8 h-2 mr-2 rounded bg-green-600" /> */}
         </aside>
         <p>{item}</p>
       </div>

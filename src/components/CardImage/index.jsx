@@ -1,5 +1,6 @@
 export const CardImage = () => {
   return (
-    <img src="./img/img.jpg" alt="" />
+    <></>
+    // <img src={src} alt={alt} />
   )
 }
