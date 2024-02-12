@@ -23,12 +23,11 @@ export const Card = ({item, id, labels, tags, editCard, handleClick}) => {
         <p>{item}</p>
       </div>
       <footer className="flex m-2 text-white">
-        {/* {!tags && (
+        {tags && (
           tags.map((text, index) => (
             <Tag key={index} text={text} />
           ))
-        )} */}
-        <Tag>tag</Tag>
+        )}
       </footer>
       {editCard && <EditationCard />}
     </li>
