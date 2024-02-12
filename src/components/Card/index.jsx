@@ -15,19 +15,19 @@ export const Card = ({item, id, labels, tags, editCard, handleClick}) => {
       <div className="p-3">
         <aside className="flex mb-1.5">
         {labels && (
-            labels.map((className, index) => (
-              <Label key={index} className={className} />
+            labels.map((color, index) => (
+              <Label key={index} color={color} />
             ))
           )}
           {/* {!labels ? null : (
-            labels.map((className, index) => (
-              <Label key={index} className={className} />
+            labels.map((color, index) => (
+              <Label key={index} color={color} />
             ))
           )} */}
-          {/* {labels.map((className, index) => (
-            <Label key={index} className={className} />
+          {/* {labels.map((color, index) => (
+            <Label key={index} color={color} />
           ))} */}
-          {/* <Label className="w-8 h-2 mr-2 rounded bg-green-600" /> */}
+          {/* <Label color="w-8 h-2 mr-2 rounded bg-green-600" /> */}
         </aside>
         <p>{item}</p>
       </div>

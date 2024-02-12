@@ -9,13 +9,13 @@ export const data = [
         image: '',
         labels: [
           {
-            className: 'w-8 h-2 mr-2 rounded bg-fuchsia-700',
+            color: 'bg-fuchsia-700',
           },
           {
-            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+            color: 'bg-green-600'
           },
           {
-            className: 'w-8 h-2 mr-2 rounded bg-blue-700'
+            color: 'bg-blue-700'
           },
         ],
         tags: [
@@ -30,10 +30,20 @@ export const data = [
       {
         id: 2,
         item: 'ukol 2',
+        labels: [
+          {
+            color: 'bg-yellow-600'
+          },
+        ]
       },
       {
         id: 3,
         item: 'ukol 3',
+        labels: [
+          {
+            color: 'bg-orange-600'
+          },
+        ],
         tags: [
           {
             text: 'tag 1',
@@ -54,13 +64,13 @@ export const data = [
         item: 'ukol 4',
         labels: [
           {
-            className: 'w-8 h-2 mr-2 rounded bg-yellow-600',
+            color: 'bg-yellow-600',
           },
           {
-            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+            color: 'bg-green-600'
           },
           {
-            className: 'w-8 h-2 mr-2 rounded bg-orange-600'
+            color: 'bg-orange-600'
           }
         ]
       },
@@ -69,10 +79,10 @@ export const data = [
         item: 'ukol 5',
         labels: [
           {
-            className: 'w-8 h-2 mr-2 rounded bg-green-600'
+            color: 'bg-green-600'
           },
           {
-            className: 'w-8 h-2 mr-2 rounded bg-blue-700'
+            color: 'bg-blue-700'
           },
         ],
       }
