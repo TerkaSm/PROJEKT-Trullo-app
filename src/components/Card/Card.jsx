@@ -1,7 +1,7 @@
-import { CardImage } from "../CardImage"
-import { EditationCard } from "../EditationCard"
-import { Label } from "../Label"
-import { Tag } from "../Tag"
+import { CardImage } from "../CardImage/CardImage"
+import { EditationCard } from "../EditationCard/EditationCard"
+import { Label } from "../Label/Label"
+import { Tag } from "../Tag/Tag"
 
 export const Card = ({item, id, labels, tags, editCard, handleClick}) => {
   const className = !editCard ? 'card' : 'card relative z-20';
@@ -14,24 +14,20 @@ export const Card = ({item, id, labels, tags, editCard, handleClick}) => {
       </figure>
       <div className="p-3">
         <aside className="flex mb-1.5">
-        {labels && (
+          {labels && (
             labels.map((color, index) => (
               <Label key={index} color={color} />
             ))
           )}
-          {/* {!labels ? null : (
-            labels.map((color, index) => (
-              <Label key={index} color={color} />
-            ))
-          )} */}
-          {/* {labels.map((color, index) => (
-            <Label key={index} color={color} />
-          ))} */}
-          {/* <Label color="w-8 h-2 mr-2 rounded bg-green-600" /> */}
         </aside>
         <p>{item}</p>
       </div>
       <footer className="flex m-2 text-white">
+        {/* {!tags && (
+          tags.map((text, index) => (
+            <Tag key={index} text={text} />
+          ))
+        )} */}
         <Tag>tag</Tag>
       </footer>
       {editCard && <EditationCard />}

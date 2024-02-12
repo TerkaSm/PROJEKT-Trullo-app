@@ -1,4 +1,4 @@
-import { Button } from "../Button"
+import { Button } from "../Button/Button"
 import { useState } from "react"
 
 export const AddCardform = ({handleAddItem}) => {

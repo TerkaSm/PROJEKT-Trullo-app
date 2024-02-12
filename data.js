@@ -34,7 +34,7 @@ export const data = [
           {
             color: 'bg-yellow-600'
           },
-        ]
+        ],
       },
       {
         id: 3,
@@ -51,7 +51,7 @@ export const data = [
           {
             text: 'tag 2'
           },
-        ]
+        ],
       },
     ],
   },

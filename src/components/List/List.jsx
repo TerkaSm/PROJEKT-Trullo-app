@@ -1,7 +1,7 @@
-import { Card } from "../Card"
-import { AddCardform } from "../AddCardForm"
+import { Card } from "../Card/Card"
+import { AddCardform } from "../AddCardForm/AddCardForm"
 import { useState } from "react"
-import { Overlay } from "../Overlay"
+import { Overlay } from "../Overlay/Overlay"
 
 export const List = ({id, title, cards}) => {
   const [addCards, setAddCards] = useState(cards)
@@ -38,9 +38,6 @@ export const List = ({id, title, cards}) => {
           <Card handleClick={handleClick} item={item} key={id} labels={labels} tags={tags} editCard={editCard}/>
         )))
       )}
-      {/* {addCards.map(({item, id, labels}) => (
-        <Card handleClick={handleClick} item={item} key={id} labels={labels} tags={tags} editCard={editCard}/>
-      ))} */}
       </ul>
       <AddCardform handleAddItem={handleAddItem} />
     </section>

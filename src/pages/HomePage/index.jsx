@@ -1,5 +1,5 @@
-import { List } from "../../components/List";
-import { AddListForm } from "../../components/AddListForm";
+import { List } from "../../components/List/List";
+import { AddListForm } from "../../components/AddListForm/AddListForm";
 import { data } from "../../../data";
 import { useState } from "react";
 //import { supabase } from "../../../supabaseClient";
