@@ -22,7 +22,6 @@ export const HomePage = () => {
     <div className="container">
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
-          {console.log(lists)}
           {lists.map(({id, title, cards}) => {
             return <List key={id} title={title} cards={cards} />
           })}

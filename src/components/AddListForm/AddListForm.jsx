@@ -6,7 +6,6 @@ export const AddListForm = ({handleAddList}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddList(inputValue)
-    console.log(inputValue)
     setInputValue('')
   }
 

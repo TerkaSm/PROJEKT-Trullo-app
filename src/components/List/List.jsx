@@ -5,10 +5,8 @@ import { Overlay } from "../Overlay/Overlay"
 
 export const List = ({id, title, cards}) => {
   const [addCards, setAddCards] = useState(cards)
-  const [editCard, setEditCard] = useState(false)
+  
   const [overlayVisible, setOverlayVisible] = useState(false)
-
-  console.log(cards)
 
   const handleAddItem = (item) => {
     const newCard = {
@@ -20,11 +18,7 @@ export const List = ({id, title, cards}) => {
     setAddCards(nextCards)
   }
 
-  const handleClick = () => {
-    console.log('kliknuto')
-    setOverlayVisible(!overlayVisible)
-    setEditCard(!editCard)
-  }
+
 
   return (
     <section key={id} className="list">
@@ -35,7 +29,7 @@ export const List = ({id, title, cards}) => {
       <ul>
       {!addCards ? null : (
         (addCards.map(({item, id, labels, tags}) => (
-          <Card handleClick={handleClick} item={item} key={id} labels={labels} tags={tags} editCard={editCard}/>
+          <Card overlayVisible={overlayVisible} setOverlayVisible={setOverlayVisible} item={item} key={id} labels={labels} tags={tags}/>
         )))
       )}
       </ul>
