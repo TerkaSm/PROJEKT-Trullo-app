@@ -12,10 +12,8 @@ export const Card = ({item, id, labels, tags, overlayVisible, setOverlayVisible}
     setEditCard(!editCard)
   }
 
-  const className = !editCard ? 'card' : 'card relative z-20';
-
   return (
-    <li onClick={handleClick} key={id} className={className}>
+    <li onClick={handleClick} key={id} className={`card ${editCard && 'relative z-20'}`}>
       <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t">
         <CardImage />
       </figure>
