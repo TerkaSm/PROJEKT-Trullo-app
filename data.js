@@ -32,7 +32,7 @@ export const data = [
         item: 'ukol 2',
         labels: [
           {
-            color: 'bg-yellow-600'
+            color: 'bg-yellow-600',
           },
         ],
       },
@@ -41,7 +41,10 @@ export const data = [
         item: 'ukol 3',
         labels: [
           {
-            color: 'bg-orange-600'
+            color: 'bg-orange-600',
+          },
+          {
+            color: 'bg-red-700',
           },
         ],
         tags: [
@@ -49,7 +52,7 @@ export const data = [
             text: 'tag 1',
           },
           {
-            text: 'tag 2'
+            text: 'tag 2',
           },
         ],
       },

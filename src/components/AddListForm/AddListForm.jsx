@@ -19,7 +19,7 @@ export const AddListForm = ({handleAddList}) => {
         onChange={e => {
           setInputValue(e.target.value)
         }}
-        className="w-full p-2.5 bg-white bg-opacity-50 focus:bg-opacity-100 placeholder-white focus:placeholder-gray-600 font-bold rounded-lg focus:shadow-xl outline-none" 
+        className="w-full p-2.5 text-lg bg-white bg-opacity-20 focus:bg-opacity-100 placeholder-white focus:placeholder-gray-600 font-bold rounded-lg focus:shadow-xl outline-none" 
         placeholder="+ Přidat nový seznam" 
         id="" />
     </form>
