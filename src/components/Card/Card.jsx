@@ -13,7 +13,7 @@ export const Card = ({item, id, labels, tags, overlayVisible, setOverlayVisible}
   }
 
   return (
-    <li onClick={handleClick} key={id} className={`card ${editCard && 'relative z-20'}`}>
+    <li onClick={handleClick} key={id} className="card">
       <figure className="flex items-center max-h-52 sm:max-h-40 border-b overflow-hidden rounded-t">
         <CardImage />
       </figure>
