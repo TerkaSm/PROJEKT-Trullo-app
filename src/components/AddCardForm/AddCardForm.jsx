@@ -29,7 +29,10 @@ export const AddCardform = ({handleAddItem}) => {
         }
         {!formVisible ? null : ( 
           <>
-            <X onClick={handleClick} color="white" size={36} className="inline-block text-end"/>
+            <div className="flex justify-end">
+              <X onClick={handleClick} color="white" size={36} className="inline-block"/>
+            </div>
+            
             <form onSubmit={handleSubmit} >
               <textarea
                 value={label}

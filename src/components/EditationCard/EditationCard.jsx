@@ -1,11 +1,14 @@
+import { X } from "react-feather"
+
 export const EditationCard = () => {
     return (
-      <div className="max-w-4/5 max-h-4/5 p-7 bg-slate-200 rounded absolute top-auto left-auto z-50">
-        <h1 className="pb-3">Změnit text</h1>
+      <div className="max-w-4/5 max-h-4/5 p-7 bg-slate-200 rounded position-center top-auto left-auto z-50">
+        <div className="flex justify-end"><X /></div>
+        <h1 className="pb-3 text-lg">Změnit text</h1>
         <form >
-          <input className="p-3" type="text" placeholder="ukol 1" />
+          <input className="p-3 rounded" type="text" placeholder="ukol 1" />
         </form>
-        <h1 className="pt-3 pb-2">Editovat štítky</h1>
+        <h1 className="pt-5 pb-3 text-lg">Editovat štítky</h1>
         <aside className="flex mb-1.5">
           <span className="w-8 h-2 mr-2 rounded bg-fuchsia-700"></span>
           <span className="w-8 h-2 mr-2 rounded bg-green-600"></span>
@@ -14,16 +17,16 @@ export const EditationCard = () => {
           <span className="w-8 h-2 mr-2 rounded bg-orange-600"></span>
           <span className="w-8 h-2 mr-2 rounded bg-red-700"></span>
         </aside>
-        <h1 className="py-3">Editovat tagy</h1>
+        <h1 className="pt-5 pb-3 text-lg">Editovat tagy</h1>
         <form className="pb-3">
           <label htmlFor="">
-            <input className="p-3" type="text" placeholder="+ přidat tag" />
+            <input className="p-3 rounded" type="text" placeholder="+ přidat tag" />
           </label>
         </form>
         <div className="flex gap-1">
-          <span className="text-white px-2 py-0.5 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 1</span>
-          <span className="text-white px-2 py-0.5 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 2</span>
-          <span className="text-white px-2 py-0.5 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 3</span>
+          <span className="text-white px-2 py-0.5 pb-1 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 1</span>
+          <span className="text-white px-2 py-0.5 pb-1 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 2</span>
+          <span className="text-white px-2 py-0.5 pb-1 mr-1.5 bg-gray-500 opacity-50 hover:opacity-100 rounded">tag 3</span>
         </div>
       </div>
     )
