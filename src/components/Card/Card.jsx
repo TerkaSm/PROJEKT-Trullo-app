@@ -34,7 +34,7 @@ export const Card = ({item, id, labels, tags, overlayVisible, setOverlayVisible}
           ))
         )}
       </footer>
-      {editCard && <EditationCard />}
+      {/* {editCard && <EditationCard />} */}
     </li>
   )
 }

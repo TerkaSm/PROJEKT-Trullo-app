@@ -20,19 +20,18 @@ export const AddCardform = ({handleAddItem}) => {
 
     return (
       <footer>
-        {!addBtnVisible ? null : (
+         {addBtnVisible 
+         ? (
           <a onClick={handleClick} className="p-1 pb-2.5 text-lg text-gray-200 hover:text-gray-50" href="#">
           {/* <span className="inline-block "><Plus size={36}/></span> */}
           <Plus className="inline-block pr-1" size={30}/>
           Přidat úkol
-        </a>)
-        }
-        {!formVisible ? null : ( 
+          </a>
+         ) : (
           <>
             <div className="flex justify-end">
               <X onClick={handleClick} color="white" size={36} className="inline-block"/>
             </div>
-            
             <form onSubmit={handleSubmit} >
               <textarea
                 value={label}

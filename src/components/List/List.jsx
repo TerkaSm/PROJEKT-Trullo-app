@@ -25,7 +25,7 @@ export const List = ({id, title, cards}) => {
       <header>
         <h3 className="font-bold p-1 leading-none text-gray-100 uppercase">{title}</h3>
       </header>
-      {overlayVisible && <Overlay />}
+      {/* {overlayVisible && <Overlay />} */}
       <ul>
       {!addCards ? null : (
         (addCards.map(({item, id, labels, tags}) => (
