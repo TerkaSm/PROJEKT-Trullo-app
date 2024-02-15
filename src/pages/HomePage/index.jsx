@@ -1,11 +1,26 @@
 import { List } from "../../components/List/List";
 import { AddListForm } from "../../components/AddListForm/AddListForm";
-import { data } from "../../../data";
+// import { data } from "../../../data";
 import { useState } from "react";
+import { useEffect } from "react";
 //import { supabase } from "../../../supabaseClient";
 
 export const HomePage = () => {
-  const [lists, setLists] = useState(data);
+  const [lists, setLists] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:4000/api/data");
+      // const response = await fetch("https://trullo.prachsproste.eu/data_test");
+      const data = await response.json();
+      setLists(data.result);
+    };
+    fetchData();
+  }, []);
+
+  if (lists === null) {
+    return <div>Načítám...</div>;
+  }
 
   const handleAddList = (title, cards) => {
     const newList = {
