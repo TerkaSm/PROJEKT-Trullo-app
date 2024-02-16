@@ -11,27 +11,54 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("http://localhost:4000/api/data");
-      // const response = await fetch("https://trullo.prachsproste.eu/data_test");
+      // const response = await fetch("https://project.prachsproste.eu/trullo");
       const data = await response.json();
       setLists(data.result);
     };
     fetchData();
   }, []);
 
+
+  const handleAddList = async () => {
+    const resp = await fetch('http://localhost:4000/api/data', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          action: "create",
+          id: Math.random(),
+          title: title,
+          cards: cards,
+        }),
+      }
+    );
+    if (!resp.ok) {
+      alert("Něco se pokazilo. Server neodpovídá..");
+      return;
+    }
+    const data = await resp.json();
+    const newList = data.results;
+    console.log(data.results)
+    const nextLists = [...lists, newList]
+    setLists(nextLists)
+  };
+
+
   if (lists === null) {
     return <div>Načítám...</div>;
   }
 
-  const handleAddList = (title, cards) => {
-    const newList = {
-      id: Math.random(),
-      title,
-      cards,
-    }
+  // const handleAddList = (title, cards) => {
+  //   const newList = {
+  //     id: Math.random(),
+  //     title,
+  //     cards,
+  //   }
 
-    const nextLists = [...lists, newList]
-    setLists(nextLists)
-  }
+  //   const nextLists = [...lists, newList]
+  //   setLists(nextLists)
+  // }
 
   return (
     <div className="container">
