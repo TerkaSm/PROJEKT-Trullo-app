@@ -2,10 +2,11 @@ import { Card } from "../Card/Card"
 import { AddCardform } from "../AddCardForm/AddCardForm"
 import { useState } from "react"
 import { Overlay } from "../Overlay/Overlay"
+import { X } from "react-feather"
 
-export const List = ({id, title, cards}) => {
+export const List = ({id, title, cards, handleDeleteList}) => {
   const [addCards, setAddCards] = useState(cards || [])
-  
+  const [closeIconVisible, setCloseIconVisible] = useState(false)
   const [overlayVisible, setOverlayVisible] = useState(false)
 
   const handleAddItem = (item) => {
@@ -21,9 +22,13 @@ export const List = ({id, title, cards}) => {
 
 
   return (
-    <section key={id} className="list">
+    <section 
+      onMouseEnter={(e) => setCloseIconVisible(!closeIconVisible)} 
+      onMouseLeave={(e) => setCloseIconVisible(!closeIconVisible)} 
+      key={id} className="list relative">
       <header>
         <h3 className="font-bold p-1 leading-none text-gray-100 uppercase">{title}</h3>
+        {closeIconVisible && <span onClick={handleDeleteList} className="absolute top-1 right-1"><X color="white" size={36}/></span>}
       </header>
       {/* {overlayVisible && <Overlay />} */}
       <ul>

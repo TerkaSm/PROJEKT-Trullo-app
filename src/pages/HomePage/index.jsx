@@ -20,7 +20,7 @@ export const HomePage = () => {
 
 
   const handleAddList = async (title) => {
-    const resp = await fetch('http://localhost:4000/api/data', {
+    const response = await fetch('http://localhost:4000/api/data', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,41 +31,39 @@ export const HomePage = () => {
         }),
       }
     );
-    if (!resp.ok) {
+    if (!response.ok) {
       alert("Něco se pokazilo. Server neodpovídá..");
       return;
     }
-    const data = await resp.json();
-    console.log('data', data);
+    const data = await response.json();
     const newList = data.result;
     console.log('data 2', data.result);
-    console.log(data.result)
     const nextLists = [...lists, newList]
     setLists(nextLists)
   };
+
+  const handleDeleteList = async (id) => {
+    const response = await fetch(`http://localhost:4000/api/data/${id}`, {
+      method: "DELETE",
+    })
+    const data = await response.json();
+    const newList = data.result;
+    console.log('delete', data.result);
+    const nextLists = [...lists, newList]
+    setLists(nextLists)
+  }
 
 
   if (lists === null) {
     return <div>Načítám...</div>;
   }
 
-  // const handleAddList = (title, cards) => {
-  //   const newList = {
-  //     id: Math.random(),
-  //     title,
-  //     cards,
-  //   }
-
-  //   const nextLists = [...lists, newList]
-  //   setLists(nextLists)
-  // }
-
   return (
     <div className="container">
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
           {lists.map(({id, title, cards}) => {
-            return <List key={id} title={title} cards={cards} />
+            return <List key={id} title={title} cards={cards} handleDeleteList={handleDeleteList}/>
           })}
           <AddListForm handleAddList={handleAddList}/>
         </div>
