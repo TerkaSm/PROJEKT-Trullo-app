@@ -16,18 +16,16 @@ export const HomePage = () => {
       setLists(data.result);
     };
     fetchData();
-  }, []);
+  }, [lists]);
 
 
-  const handleAddList = async () => {
+  const handleAddList = async (title) => {
     const resp = await fetch('http://localhost:4000/api/data', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          action: "create",
-          id: Math.random(),
           title: title,
           cards: cards,
         }),
@@ -38,8 +36,10 @@ export const HomePage = () => {
       return;
     }
     const data = await resp.json();
-    const newList = data.results;
-    console.log(data.results)
+    console.log('data', data);
+    const newList = data.result;
+    console.log('data 2', data.result);
+    console.log(data.result)
     const nextLists = [...lists, newList]
     setLists(nextLists)
   };
