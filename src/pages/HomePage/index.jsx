@@ -53,6 +53,23 @@ export const HomePage = () => {
     setLists(nextLists)
   }
 
+  const handleEditList = async (id, title) => {
+    const response = await fetch(`http://localhost:4000/api/data/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+      }),
+    })
+    const data = await response.json();
+    const newList = data.result;
+    console.log('put', data.result);
+    const nextLists = [...lists, newList]
+    setLists(nextLists)
+  }
+
 
   if (lists === null) {
     return <div>Načítám...</div>;
@@ -63,7 +80,7 @@ export const HomePage = () => {
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
           {lists.map(({id, title, cards}) => {
-            return <List id={id} key={id} title={title} cards={cards} handleDeleteList={handleDeleteList}/>
+            return <List id={id} key={id} title={title} cards={cards} handleDeleteList={handleDeleteList} handleEditList={handleEditList}/>
           })}
           <AddListForm handleAddList={handleAddList}/>
         </div>
