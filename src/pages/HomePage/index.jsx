@@ -19,7 +19,7 @@ export const HomePage = () => {
   }, [lists]);
 
 
-  const handleAddList = async (title) => {
+  const handleAddList = async (title, cards) => {
     const response = await fetch('http://localhost:4000/api/data', {
         method: "POST",
         headers: {
@@ -63,7 +63,7 @@ export const HomePage = () => {
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
           {lists.map(({id, title, cards}) => {
-            return <List key={id} title={title} cards={cards} handleDeleteList={handleDeleteList}/>
+            return <List id={id} key={id} title={title} cards={cards} handleDeleteList={handleDeleteList}/>
           })}
           <AddListForm handleAddList={handleAddList}/>
         </div>

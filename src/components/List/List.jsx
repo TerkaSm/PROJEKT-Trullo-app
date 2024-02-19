@@ -9,7 +9,7 @@ export const List = ({id, title, cards, handleDeleteList}) => {
   const [closeIconVisible, setCloseIconVisible] = useState(false)
   const [overlayVisible, setOverlayVisible] = useState(false)
 
-  const handleAddItem = (item) => {
+  const handleAddCard = (item) => {
     const newCard = {
       item, 
       id: Math.random()
@@ -20,7 +20,6 @@ export const List = ({id, title, cards, handleDeleteList}) => {
   }
 
 
-
   return (
     <section 
       onMouseEnter={(e) => setCloseIconVisible(!closeIconVisible)} 
@@ -28,7 +27,12 @@ export const List = ({id, title, cards, handleDeleteList}) => {
       key={id} className="list relative">
       <header>
         <h3 className="font-bold p-1 leading-none text-gray-100 uppercase">{title}</h3>
-        {closeIconVisible && <span onClick={handleDeleteList} className="absolute top-1 right-1"><X color="white" size={36}/></span>}
+        {closeIconVisible && (
+          <span className="absolute top-1 right-1">
+            <X onClick={() => handleDeleteList(id)} 
+            color="white"
+            size={36}/>
+          </span>)}
       </header>
       {/* {overlayVisible && <Overlay />} */}
       <ul>
@@ -38,7 +42,7 @@ export const List = ({id, title, cards, handleDeleteList}) => {
         )))
       )}
       </ul>
-      <AddCardform handleAddItem={handleAddItem} />
+      <AddCardform handleAddCard={handleAddCard} />
     </section>
   
   )

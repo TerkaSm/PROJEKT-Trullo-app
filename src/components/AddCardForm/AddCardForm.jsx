@@ -2,14 +2,14 @@ import { Button } from "../Button/Button"
 import { useState } from "react"
 import { Plus, X } from 'react-feather'
 
-export const AddCardform = ({handleAddItem}) => {
+export const AddCardform = ({handleAddCard}) => {
     const [ formVisible, setFormVisible] = useState(false)
     const [ addBtnVisible, setAddBtnVisible] = useState(true)
     const [label, setLabel] = useState('')
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      handleAddItem(label)
+      handleAddCard(label)
       setLabel('')
     }
 
