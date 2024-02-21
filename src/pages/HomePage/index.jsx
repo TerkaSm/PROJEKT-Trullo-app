@@ -1,22 +1,27 @@
 import { List } from "../../components/List/List";
 import { AddListForm } from "../../components/AddListForm/AddListForm";
 // import { data } from "../../../data";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 //import { supabase } from "../../../supabaseClient";
 
 export const HomePage = () => {
   const [lists, setLists] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+    try {
       const response = await fetch("http://localhost:4000/api/data");
       // const response = await fetch("https://project.prachsproste.eu/trullo");
       const data = await response.json();
       setLists(data.result);
-    };
+      console.log(data.result)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, []);
+  
+  useEffect(() => {
     fetchData();
-  }, [lists]);
+  }, [fetchData]);
 
 
   const handleAddList = async (title, cards) => {
@@ -47,9 +52,9 @@ export const HomePage = () => {
       method: "DELETE",
     })
     const data = await response.json();
-    const newList = data.result;
+    const deletingList = data.result;
     console.log('delete', data.result);
-    const nextLists = [...lists, newList]
+    const nextLists = [...lists, deletingList]
     setLists(nextLists)
   }
 
@@ -60,6 +65,7 @@ export const HomePage = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id: id,
         title: title,
       }),
     })
@@ -68,6 +74,7 @@ export const HomePage = () => {
     console.log('put', data.result);
     const nextLists = [...lists, newList]
     setLists(nextLists)
+    console.log('put', nextLists)
   }
 
 
@@ -79,7 +86,7 @@ export const HomePage = () => {
     <div className="container">
       <main className="flex min-h-screen w-screen bg-yellow-300">
         <div className="sm:flex items-start w-screen p-10 overflow-x-auto">
-          {lists.map(({id, title, cards}) => {
+          {lists && lists.map(({id, title, cards}) => {
             return <List id={id} key={id} title={title} cards={cards} handleDeleteList={handleDeleteList} handleEditList={handleEditList}/>
           })}
           <AddListForm handleAddList={handleAddList}/>
