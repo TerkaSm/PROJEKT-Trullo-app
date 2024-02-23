@@ -26,7 +26,7 @@ export const List = ({id, title, cards, handleDeleteList, handleEditList}) => {
     e.preventDefault()
     console.log('nový název listu', titleValue)
     setTitleValue(titleValue)
-    handleEditList(titleValue)
+    handleEditList(id, titleValue)
     setIsTitleEditing(!isTitleEditing)
   }
 
