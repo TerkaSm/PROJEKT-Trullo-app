@@ -9,11 +9,11 @@ export const HomePage = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/data");
-      // const response = await fetch("https://project.prachsproste.eu/trullo");
+      // const response = await fetch("http://localhost:4000/api/data");
+      const response = await fetch("https://project.prachsproste.eu/trullo");
       const data = await response.json();
-      setLists(data.result);
-      console.log(data.result)
+      setLists(data);
+      console.log(data)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -25,7 +25,7 @@ export const HomePage = () => {
 
 
   const handleAddList = async (title, cards) => {
-    const response = await fetch('http://localhost:4000/api/data', {
+    const response = await fetch('https://project.prachsproste.eu/trullo', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,25 +41,33 @@ export const HomePage = () => {
       return;
     }
     const data = await response.json();
-    const newList = data.result;
-    console.log('data 2', data.result);
+    const newList = data;
+    console.log('data 2', data);
     const nextLists = [...lists, newList]
     setLists(nextLists)
   };
 
+  
   const handleDeleteList = async (id) => {
-    const response = await fetch(`http://localhost:4000/api/data/${id}`, {
-      method: "DELETE",
-    })
-    const data = await response.json();
-    const deletingList = data.result;
-    console.log('delete', data.result);
-    const nextLists = [...lists, deletingList]
-    setLists(nextLists)
-  }
+    try {
+      const response = await fetch(`https://project.prachsproste.eu/trullo/${id}`, {
+        method: "DELETE",
+      });
+  
+      if (!response.ok) {
+        throw new Error("Smazaání listu se nepodařilo");
+      }
+  
+      const updatedLists = lists.filter(list => list.id !== id);
+      setLists(updatedLists);
+  
+    } catch (error) {
+      console.error('Error deleting list:', error.message);
+    }
+  };
 
   const handleEditList = async (id, title) => {
-    const response = await fetch(`http://localhost:4000/api/data/${id}`, {
+    const response = await fetch(`https://project.prachsproste.eu/trullo/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -70,8 +78,8 @@ export const HomePage = () => {
       }),
     })
     const data = await response.json();
-    const newList = data.result;
-    console.log('put', data.result);
+    const newList = data;
+    console.log('put', data);
     const nextLists = [...lists, newList]
     setLists(nextLists)
     console.log('put', nextLists)
