@@ -38,12 +38,5 @@ Hlavní rozdíl oprosti Trello je, že nástěnka bude pouze jedna a bude soukro
 
 `npm run dev`
 
-Rozeběhněte si lokální server pomocí 
-
-`npx jsonhost`
-
- Otevřete si v prohlížeči stránku http://localhost:4000/api/data a ověřte, že se vám zobrazují data z vašeho souboru.
-
- 
 
 Design vznikl pomocí výukového [tutoriálu na TailWind CSS](https://www.youtube.com/watch?v=5mgrioodze8&ab_channel=ROBWEBsyablkom) od Yablka
